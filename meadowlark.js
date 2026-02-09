@@ -7,10 +7,13 @@ const app = express();
 const viewsPath = path.join(__dirname, 'views');
 
 // configure Handlebars view engine
-app.engine('handlebars', engine({
-    extname: '.handlebars',
+app.engine('hbs', engine({
+    extname: '.hbs',
+    defaultLayout: 'main',
+    layoutsDir: path.join(viewsPath, 'layouts'),
+    partialsDir: path.join(viewsPath, 'partials'),
 }));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 
 const port = process.env.PORT || 3000;
