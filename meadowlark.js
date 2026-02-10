@@ -4,6 +4,8 @@ const { engine } = require('express-handlebars');
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, '/public')));
+
 const viewsPath = path.join(__dirname, 'views');
 
 // configure Handlebars view engine
