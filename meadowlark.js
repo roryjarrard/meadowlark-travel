@@ -29,10 +29,10 @@ app.use((req, res) => {
 });
 
 // custom 500 page
-// app.use((err, req, res, next) => {
-//     console.error(err.message);
-//     res.status(500);
-//     res.render('500');
-// });
+app.use((err, req, res, next) => {
+    console.error(err.message);
+    res.status(500);
+    res.render('500');
+});
 
 app.listen(port, () => console.log(`Meadowlark app listening on port ${port}...`));
