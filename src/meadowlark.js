@@ -1,10 +1,11 @@
 const path = require('path');
 const express = require('express');
 const { engine } = require('express-handlebars');
+const { getFortune } = require('./lib/fortune')
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '..', '/public')));
 
 const viewsPath = path.join(__dirname, 'views');
 
@@ -22,7 +23,10 @@ const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => res.render('home'));
 
-app.get('/about', (req, res) => res.render('about'));
+app.get('/about', (req, res) => {
+    const randomFortune = getFortune();
+    res.render('about', { fortune: randomFortune });
+});
 
 // custom 404 page
 app.use((req, res) => {
@@ -38,3 +42,4 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => console.log(`Meadowlark app listening on port ${port}...`));
+

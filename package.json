@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "meadowlark.js",
   "scripts": {
-    "start": "nodemon meadowlark.js"
+    "start": "nodemon src/meadowlark.js"
   },
   "dependencies": {
     "express": "^5.2.1",
