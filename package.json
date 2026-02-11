@@ -7,10 +7,14 @@
   "type": "commonjs",
   "main": "meadowlark.js",
   "scripts": {
-    "start": "nodemon src/meadowlark.js"
+    "start": "nodemon src/meadowlark.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^5.2.1",
     "express-handlebars": "^8.0.5"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }
