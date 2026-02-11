@@ -31,5 +31,8 @@ app.use(handlers.notFound);
 // custom 500 page
 app.use(handlers.serverError);
 
-app.listen(port, () => console.log(`Meadowlark app listening on port ${port}...`));
-
+if (require.main === module) {
+    app.listen(port, () => console.log(`Meadowlark app listening on port ${port}...`));
+} else {
+    module.exports = app;
+}   
